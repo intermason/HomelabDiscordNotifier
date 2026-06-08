@@ -16,13 +16,27 @@ import java.time.Duration;
 public class HTTPService implements Service {
     String name;
     String url;
+    boolean quiet;
 
+    HTTPService(String url, String name, boolean quiet) {
+        this.url = url;
+        this.name = name;
+        this.quiet = quiet;
+    }
 
-    HTTPService(String url, String name) { this.url = url; this.name = name; }
+    HTTPService(String url, String name) { this.url = url; this.name = name; this.quiet = false; }
+
+    HTTPService(String url, boolean quiet) {
+        this.url = url;
+        this.name = "Unknown service";
+        this.quiet = quiet;
+
+    }
 
     public HTTPService(String url) {
         this.url = url;
         this.name = "Unknown service";
+        this.quiet = false;
     }
 
 
@@ -41,7 +55,7 @@ public class HTTPService implements Service {
                         .timeout(Duration.ofSeconds(5))
                         .build();
                 HttpResponse<Void> response = client.send(request, HttpResponse.BodyHandlers.discarding());
-                System.out.println(response.statusCode());
+                if (!quiet) System.out.println("[HTTP]\t" + name + " status code: " + response.statusCode());
                 return response.statusCode() == 200;
             } catch (HttpTimeoutException e) {
                 System.out.println(attempts + " failed, retrying...");
