@@ -1,6 +1,5 @@
 package org.projects;
 
-import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.IOException;
 import java.net.URI;
