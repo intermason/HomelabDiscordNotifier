@@ -7,15 +7,22 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Map;
 
 public class DiscordWebhook {
     private String webhookId;
     DiscordWebhook() {
-        Dotenv dotenv =  Dotenv.configure()
-                .directory("./")
-                .load();
-        String webhookId = dotenv.get("DISCORD_WEBHOOK");
-        HTTPService webhookCheck = new HTTPService(webhookId);
+        EnvParser envParser = new EnvParser();
+        Map<String, String> envVars = null;
+        String webhookId = "";
+        try {
+            envVars = envParser.getEnvVars();
+            webhookId = envVars.get("DISCORD_WEBHOOK");
+        } catch (IOException e) {
+            System.out.println("No .env file found. Is it in the root directory?");
+        }
+
+        HTTPService webhookCheck = new HTTPService(webhookId, true);
         if (webhookCheck.isReady()) {
             System.out.println("Valid webhook!");
             this.webhookId = webhookId;
