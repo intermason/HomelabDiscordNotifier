@@ -40,4 +40,5 @@ build/
 
 
 ### .env file ###
-/home/Mason/IdeaProjects/JavaChat/HomelabDiscordNotifier/src/main/java/org/projects/.env
+.env
+src/main/java/org/projects/Main.java
