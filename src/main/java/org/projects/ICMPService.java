@@ -33,6 +33,7 @@ public class ICMPService implements Service {
             System.out.println("Pinging " + ip);
             try {
                 if (address.isReachable(50)) {
+                    System.out.println("[ICMP] " + name + "is reachable.");
                     return true;
                 } else {
                     return false;

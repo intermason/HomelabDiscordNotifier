@@ -40,6 +40,7 @@ public class PortService implements Service {
     public boolean isReady() {
         try (Socket socket = new Socket()) {
             socket.connect(new InetSocketAddress(ip, port), 3000);
+            System.out.println("[PORT] " + name + " is reachable.");
             return true;
         } catch (IOException e) {
             return false;
