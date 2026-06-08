@@ -33,6 +33,11 @@ public class DiscordWebhook {
 
 
     }
+
+    /**
+     * Sends a message to a Discord webhook using JSON.
+     * @param message String to be sent as a message.
+     */
     public void sendMessage(String message) {
         String body = "{\"content\": ";
         body += "\"" + message + "\"}";
@@ -44,7 +49,6 @@ public class DiscordWebhook {
                     .build();
 
 
-            System.out.println(body);
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             System.out.println(response.body());
