@@ -19,8 +19,9 @@ public class EnvParser {
         Path envPath = Paths.get(".env").toAbsolutePath();
         Map<String, String> envVars = Files.readAllLines(envPath)
                 .stream()
-                .map(line -> line.split("="))
-                .collect(Collectors.toMap(arr -> arr[0], arr -> arr[1]));
+                .filter(line -> !line.startsWith("#") && line.contains("="))
+                .map(line -> line.split("=", 2))
+                .collect(Collectors.toMap(arr -> arr[0].trim(), arr -> arr[1].trim()));
         return envVars;
     }
 }
