@@ -46,4 +46,9 @@ public class PortService implements Service {
             return false;
         }
     }
+
+    @Override
+    public String getName() {
+        return name;
+    }
 }
