@@ -12,7 +12,7 @@ public class DiscordWebhook {
     private String webhookId;
     DiscordWebhook() {
         EnvParser envParser = new EnvParser();
-        Map<String, String> envVars = null;
+        Map<String, String> envVars;
         String webhookId = "";
         try {
             envVars = envParser.getEnvVars();
