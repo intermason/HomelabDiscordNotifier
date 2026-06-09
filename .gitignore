@@ -41,4 +41,3 @@ build/
 
 ### .env file ###
 .env
-src/main/java/org/projects/Main.java
