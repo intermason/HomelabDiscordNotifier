@@ -12,6 +12,7 @@ doNewCommitsExist=false
 [ -n "$(git log HEAD..origin/main --oneline)" ] && doNewCommitsExist=true || doNewCommitsExist=false
 
 if [ "$doNewCommitsExist" = true ]; then
+  echo "New commits found, pulling and making new package..."
 
   git pull origin main
   mvn clean package
