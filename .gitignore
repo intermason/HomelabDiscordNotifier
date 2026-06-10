@@ -46,8 +46,4 @@ build/
 dependency-reduced-pom.xml
 out/
 
-### Analysis output ###
-graphify-out/
 
-### Learning resources ###
-bash-intro.html
