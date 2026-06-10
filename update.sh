@@ -13,6 +13,6 @@ doNewCommitsExist=false
 
 if [ "$doNewCommitsExist" = true ]; then
 
-  git pull
+  git pull origin main
   mvn clean package
 fi
