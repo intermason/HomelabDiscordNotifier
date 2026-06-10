@@ -41,3 +41,13 @@ build/
 
 ### .env file ###
 .env
+
+### Build artifacts ###
+dependency-reduced-pom.xml
+out/
+
+### Analysis output ###
+graphify-out/
+
+### Learning resources ###
+bash-intro.html
