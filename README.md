@@ -2,6 +2,8 @@
 
 A Java program for my homelab, where once it starts, will send a Discord message showing all statuses for my services in a list.
 
+This project supports automatic updates via `update.sh`.
+
 ## Overview
 This notifier will send a Discord message displaying the status for every service in a list, at runtime.
 
